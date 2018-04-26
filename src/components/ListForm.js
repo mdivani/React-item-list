@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ListForm extends React.Component {
+export default class ListForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,7 +33,7 @@ class ListForm extends React.Component {
             const list = {
                 name: this.state.name,
                 endDate: this.state.endDate,
-                startDate: this.startDate
+                startDate: this.state.startDate
             }
 
             console.log('list submitted', list);
@@ -53,13 +53,13 @@ class ListForm extends React.Component {
                 placeholder='name' />
               <input 
                 type='text' 
-                value={this.state.name}
+                value={this.state.startDate}
                 onChange={this.onStartDateChange}
                 className='text-input'
                 placeholder='start date' />
               <input 
                 type='text' 
-                value={this.state.name}
+                value={this.state.endDate}
                 onChange={this.onEndDateChange}
                 className='text-input'
                 placeholder='end date' />
