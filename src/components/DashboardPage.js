@@ -3,14 +3,32 @@ import { connect } from 'react-redux';
 import ListTable from './ListTable';
 import ItemsTable from './ItemsTable';
 import SelectItems from './SelectItems';
+import { addItemToList } from '../actions/lists';
+
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedList: props.lists ? props.lists[0] : null
+      selectedList: props.lists ? props.lists[0] : null,
+      selectedItemName: null
     }
   }
+
+  handleAddItem = () => {
+    if(this.state.selectedItemName) {
+      const selectedItem = this.props.items.filter((item) =>{
+        return item.name === this.state.selectedItemName
+      })[0];
+      this.props.addItemToList(this.state.selectedList, selectedItem);
+    }
+  }
+
+  onSelectChange = (e) => {
+    const selectedItemName = e.target.value;
+    this.setState(() => ({selectedItemName}));
+  }
+
   render() {
     return (
       <div className='container'>
@@ -25,7 +43,17 @@ class DashboardPage extends React.Component {
           </div>
           <div className='col-3-of-4'>
             <h1>Items</h1>
-            <SelectItems />
+            <div className='row'>
+            <div className='col-3-of-4'>
+            <SelectItems 
+              onSelectChange={this.onSelectChange}/>
+            </div>
+            <div className='col-1-of-4'>
+            <button 
+              onClick={this.handleAddItem}
+              className='button'>Add Item</button>
+            </div>
+            </div>
               {
                 this.state.selectedList.items.length > 0 ? 
                 <ItemsTable selectedList={this.state.selectedList} /> : 
@@ -39,7 +67,12 @@ class DashboardPage extends React.Component {
 } 
 
 const mapStateToProps = (state) => ({
-  lists: state.lists
+  lists: state.lists,
+  items: state.items
 });
 
-export default connect(mapStateToProps)(DashboardPage);
+const mapDispatchToProps = (dispatch) => ({
+  addItemToList: (list, item) => dispatch(addItemToList(list, item))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

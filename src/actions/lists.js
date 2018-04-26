@@ -3,8 +3,8 @@ export const addList = (list) => ({
     list
 });
 
-export const addItemToList = (list, item) => {
+export const addItemToList = (list, item) => ({
     type: 'ADD_ITEM_TO_LIST',
     list,
     item
-}
+});

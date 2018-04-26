@@ -6,6 +6,10 @@
   padding: $s-size;
 }
 
+.text-input--long {
+  width: 100%;
+}
+
 .select {
   @extend .text-input;
 }

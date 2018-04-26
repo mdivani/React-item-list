@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 
 
 const SelectItems = (props) => (
-    <div className='row'>
-        <select className='text-input'>
+        <select 
+            onChange={props.onSelectChange}
+            className='text-input text-input--long'>
         <option disabled selected>Add Items</option>
             {props.items && props.items.map(({name}) => {
                 return <option 
@@ -12,7 +13,6 @@ const SelectItems = (props) => (
                         value={name}>{name}</option>
             })}
         </select>
-    </div>
 )
 
 const mapStateToProps = (state) => ({
