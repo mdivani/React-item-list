@@ -1,13 +1,17 @@
 import React from 'react';
+import {DateRangePicker} from 'react-dates';
+import moment from 'moment';
+import uuid from 'uuid';
 
 export default class ListForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             name: '',
-            startDate: '',
-            endDate: '',
-            error: ''
+            startDate: moment(),
+            endDate: moment(),
+            error: '',
+            focusedInput: null
         }
     }
 
@@ -16,14 +20,12 @@ export default class ListForm extends React.Component {
         this.setState(() => ({name}));
     }
 
-    onStartDateChange = (e) => {
-        const startDate = e.target.value;
-        this.setState(() => ({startDate}));
+    onFocusChange = (focusedInput) => {
+        this.setState(() => ({ focusedInput}))
     }
 
-    onEndDateChange = (e) => {
-        const endDate = e.target.value;
-        this.setState(() => ({endDate}));
+    handleDateChange = ({startDate, endDate}) => {
+        this.setState(() => ({startDate, endDate}));
     }
 
     handleFormSubmit = (e) => {
@@ -51,18 +53,17 @@ export default class ListForm extends React.Component {
                 onChange={this.onNameChange}
                 className='text-input'
                 placeholder='name' />
-              <input 
-                type='text' 
-                value={this.state.startDate}
-                onChange={this.onStartDateChange}
-                className='text-input'
-                placeholder='start date' />
-              <input 
-                type='text' 
-                value={this.state.endDate}
-                onChange={this.onEndDateChange}
-                className='text-input'
-                placeholder='end date' />
+              <DateRangePicker 
+                startDate = {this.state.startDate}
+                startDateId = {uuid()}
+                endDate = {this.state.endDate}
+                endDateId = {uuid()}
+                onDatesChange = {this.handleDateChange}
+                focusedInput = {this.state.focusedInput}
+                onFocusChange = {this.onFocusChange}
+                isOutsideRange = {() => false}
+                 />
+
                 <button className='btn'>Create</button>
             </form>
         )

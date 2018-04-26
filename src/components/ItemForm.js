@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addItem } from '../actions/items';
 
-export default class ItemForm extends React.Component {
+export class ItemForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,7 +43,13 @@ export default class ItemForm extends React.Component {
                 second: this.state.second,
                 third: this.state.third
             };
-            console.log('item submitted-', item);
+            this.props.addItem(item);
+            this.setState(() => ({
+                name: '',
+                first: '',
+                second: '',
+                third: ''
+            }));
         }
     }
 
@@ -79,3 +87,9 @@ export default class ItemForm extends React.Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    addItem: (item) => dispatch(addItem(item))
+});
+
+export default connect(undefined, mapDispatchToProps)(ItemForm)
