@@ -2,12 +2,15 @@ import React from 'react';
 
 const ItemsTable = (props) => (
     <table className='table'>
+    <thead>
         <tr className='table__row'>
             <th className='table__header'>Name</th>
             <th className='table__header'>String #1</th>
             <th className='table__header'>String #2</th>
             <th className='table__header'>String #3</th>
         </tr>
+    </thead>
+    <tbody>
         {props.items.map((item) => {
             return <tr key={item.name} 
                       className='table__row'>
@@ -17,6 +20,7 @@ const ItemsTable = (props) => (
                       <td className='table__data'>{item.third}</td>
                    </tr>
         })}
+    </tbody>
     </table>
 )
 

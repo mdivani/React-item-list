@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../components/DashboardPage';
-import ItemForm from '../components/ItemForm';
+import AddItemsPage from '../components/AddItemsPage';
 import ListForm from '../components/ListForm';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
@@ -16,7 +16,7 @@ const AppRouter = () => (
     <div>
       <Switch>
         <Route path="/" component={DashboardPage} exact={true} />
-        <Route path='/item' component={ItemForm} />
+        <Route path='/item' component={AddItemsPage} />
         <Route path='/list' component={ListForm} />
         <Route component={NotFoundPage} />
       </Switch>
