@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {DateRangePicker} from 'react-dates';
 import moment from 'moment';
 import uuid from 'uuid';
@@ -35,10 +36,10 @@ export default class ListForm extends React.Component {
             const list = {
                 name: this.state.name,
                 endDate: this.state.endDate,
-                startDate: this.state.startDate
+                startDate: this.state.startDate,
+                items: []
             }
-
-            console.log('list submitted', list);
+            this.props.handleAddList(list);
         }
     }
 

@@ -1,14 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ListForm from './ListForm';
+import { addList } from '../actions/lists';
 
 const AddListPage = (props) => {
+    const handleAddList = (list) => {
+        props.addList(list);
+        props.history.push('/');
+    }
+
     return (
         <div className='content-container'>
             <h2>Create New List</h2>
-            <ListForm />
+            <ListForm handleAddList={handleAddList} />
         </div>
     )
 }
 
-export default AddListPage;
+const mapDispatchToProps = (dispatch) => ({
+    addList: (list) => dispatch(addList(list))
+});
+
+export default connect(undefined, mapDispatchToProps)(AddListPage);
