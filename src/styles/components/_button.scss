@@ -10,10 +10,40 @@
   text-decoration: none;
 }
 
+.button[disabled] {
+  background: $grey;
+}
+
 .button--link {
   background: none;
 }
 
 .button--secondary {
   background: #888;
+}
+
+.btn {
+  background-color: #01579B;
+  border: 1px solid #777;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0, .15);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 5px 8px;
+  min-width: 80px;
+  margin-left: auto;
+  margin-right: 4px;
+  transition: all .2s;
+  &--small {
+    min-width: 0;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
 }

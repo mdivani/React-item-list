@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ListForm from './ListForm';
 import ListTable from './ListTable';
+import Header from './Header';
 import { addList } from '../actions/lists';
 
 const AddListPage = (props) => {
@@ -11,9 +12,12 @@ const AddListPage = (props) => {
     }
 
     return (
-        <div className='content-container'>
-            <h2>Create New List</h2>
-            <ListForm handleAddList={handleAddList} />
+        <div className='container'>
+            <Header />
+            <div className='content-container'>
+                <h2>Create New List</h2>
+                <ListForm handleAddList={handleAddList} />
+            </div>
         </div>
     )
 }

@@ -3,23 +3,22 @@ import { connect } from 'react-redux';
 import ListTable from './ListTable';
 import ItemsTable from './ItemsTable';
 import SelectItems from './SelectItems';
+import Header from './Header';
 import { addItemToList } from '../actions/lists';
+import { selectList } from '../actions/selectedList';
 
 
 class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedList: props.lists ? props.lists[0] : null,
       selectedItemName: null
     }
   }
 
-  handleListSelect = (list) => {
-    if(list) {
-      this.setState(() => ({
-        selectedList: list
-      }));
+  handleListSelect = (selectedList) => {
+    if(selectedList) {
+      this.props.selectList(selectedList);
     }
   }
 
@@ -28,7 +27,7 @@ class DashboardPage extends React.Component {
       const selectedItem = this.props.items.filter((item) =>{
         return item.name === this.state.selectedItemName
       })[0];
-      this.props.addItemToList(this.state.selectedList, selectedItem);
+      this.props.addItemToList(this.props.selectedList, selectedItem);
     }
   }
 
@@ -40,6 +39,7 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className='container'>
+      <Header />
         <div className='row'>
           <div className='col-1-of-4'>
             <h1>Lists</h1>
@@ -61,13 +61,14 @@ class DashboardPage extends React.Component {
             </div>
             <div className='col-1-of-4'>
             <button 
+              disabled={this.props.lists.length === 0}
               onClick={this.handleAddItem}
               className='button'>Add Item</button>
             </div>
             </div>
               {
-                this.state.selectedList.items.length > 0 ? 
-                <ItemsTable selectedList={this.state.selectedList} /> : 
+                this.props.selectedList && this.props.selectedList.items.length > 0 ? 
+                <ItemsTable selectedList={this.props.selectedList}/> : 
                 <h3>No items to display</h3>
               }
           </div>
@@ -79,11 +80,13 @@ class DashboardPage extends React.Component {
 
 const mapStateToProps = (state) => ({
   lists: state.lists,
-  items: state.items
+  items: state.items,
+  selectedList: state.selectedList || state.lists[0]
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItemToList: (list, item) => dispatch(addItemToList(list, item))
+  addItemToList: (list, item) => dispatch(addItemToList(list, item)),
+  selectList: (list) => dispatch(selectList(list))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
