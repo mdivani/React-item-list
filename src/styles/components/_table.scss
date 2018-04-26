@@ -1,10 +1,11 @@
 .table {
+    background-color: $dark-white;
     border-collapse: collapse;
     border-spacing: 0;
+    cursor: pointer;
     table-layout: fixed;
     text-transform: capitalize;
     width: 100%;
-    border: 1px solid $grey;
     box-shadow: 3px 3px 6px rgba(0,0,0, .2);
     transition: all .5s;
     &__data {
@@ -23,21 +24,44 @@
       }
       
       &__row {
-        background-color: $dark-white;
         padding: 0;
       }
-      
-      &__row:nth-child(odd) {
-          background-color: $light-grey;
-      }
-      
-      &__row:hover {
-        background-color: $off-white;
-      }
+}
+
+.table--hover {
+  background-color: $dark-white;
+  &:hover,
+  &:focus {
+    background-color: $off-white;
+    transform: translateY(-5px);
   }
+}
+
+.table--active {
+  background-color: $off-white;
+}
   
-  .table--no-border {
-    border: 0px;
-    box-shadow: initial;
+.table--no-border {
+  border: 0px;
+  box-shadow: initial;
+}
+
+.table--borders {
+  border: 1px solid $grey;
+  cursor: default;
+  .table__row {
+    background-color: $dark-white;
+    padding: 0;
+    &:first-child {
+      border-bottom: .5px solid $grey;
+    }
   }
+
+  .table__row:nth-child(even) {
+    background-color: $light-grey;
+  }
+  .table__row:hover {
+    background-color: $off-white;
+  }
+}
   
