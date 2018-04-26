@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import itemSelector from '../selectors/itemsSelector';
 
 const ItemsTable = (props) => (
     <table className='table'>
@@ -22,6 +24,10 @@ const ItemsTable = (props) => (
         })}
     </tbody>
     </table>
-)
+);
 
-export default ItemsTable;
+const mapStateToProps = (state, props) => ({
+    items: itemSelector(props.selectedList, state.items)
+});
+
+export default connect(mapStateToProps)(ItemsTable);

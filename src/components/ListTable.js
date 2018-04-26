@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListTable = (props) => (
+const ListTable = ({list}) => (
     <table className='table'>
         <thead>
             <tr className='table__row'>

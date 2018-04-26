@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ListForm from './ListForm';
+import ListTable from './ListTable';
 import { addList } from '../actions/lists';
 
 const AddListPage = (props) => {

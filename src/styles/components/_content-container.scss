@@ -3,3 +3,13 @@
   padding: 0 $m-size;
   max-width: 80rem;
 }
+
+.container {
+  width: 100%;
+  margin: auto;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
