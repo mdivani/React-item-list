@@ -35,8 +35,8 @@ export default class ListForm extends React.Component {
         if(this.state.name && this.state.startDate && this.state.endDate) {
             const list = {
                 name: this.state.name,
-                endDate: this.state.endDate,
-                startDate: this.state.startDate,
+                endDate: this.state.endDate.format('DD.MM.YYYY'),
+                startDate: this.state.startDate.format('DD.MM.YYYY'),
                 items: []
             }
             this.props.handleAddList(list);

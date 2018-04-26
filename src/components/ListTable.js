@@ -1,7 +1,9 @@
 import React from 'react';
 
-const ListTable = ({list}) => (
-    <table className='table'>
+const ListTable = ({list, handleListSelect}) => (
+    <table 
+        onClick={() => handleListSelect(list) }
+        className='table'>
         <thead>
             <tr className='table__row'>
                 <th className='table__header'>Name</th>

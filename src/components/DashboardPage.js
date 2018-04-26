@@ -15,6 +15,14 @@ class DashboardPage extends React.Component {
     }
   }
 
+  handleListSelect = (list) => {
+    if(list) {
+      this.setState(() => ({
+        selectedList: list
+      }));
+    }
+  }
+
   handleAddItem = () => {
     if(this.state.selectedItemName) {
       const selectedItem = this.props.items.filter((item) =>{
@@ -37,7 +45,10 @@ class DashboardPage extends React.Component {
             <h1>Lists</h1>
             {
               this.props.lists ? this.props.lists.map((list) => {
-                return <ListTable key={list.name} list={list} />
+                return <ListTable 
+                        handleListSelect={this.handleListSelect}
+                        key={list.name} 
+                        list={list} />
               }) : <h3>No Lists to display</h3>
             }
           </div>

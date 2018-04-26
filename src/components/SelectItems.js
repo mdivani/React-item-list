@@ -6,7 +6,7 @@ const SelectItems = (props) => (
         <select 
             onChange={props.onSelectChange}
             className='text-input text-input--long'>
-        <option disabled selected>Add Items</option>
+        <option disabled selected>Select Items</option>
             {props.items && props.items.map(({name}) => {
                 return <option 
                         key={name} 
