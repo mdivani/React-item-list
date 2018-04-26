@@ -1,0 +1,43 @@
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    text-transform: capitalize;
+    width: 100%;
+    border: 1px solid $grey;
+    box-shadow: 3px 3px 6px rgba(0,0,0, .2);
+    transition: all .5s;
+    &__data {
+        text-align: center;
+        padding: $xs-size;
+        width: 100%;
+      }
+      
+      &__data--nospace {
+        padding: 0;
+        margin: 0;
+      }
+      
+      &__header {
+        padding: $xs-size;
+      }
+      
+      &__row {
+        background-color: $dark-white;
+        padding: 0;
+      }
+      
+      &__row:nth-child(odd) {
+          background-color: $light-grey;
+      }
+      
+      &__row:hover {
+        background-color: $off-white;
+      }
+  }
+  
+  .table--no-border {
+    border: 0px;
+    box-shadow: initial;
+  }
+  
