@@ -49,7 +49,7 @@ class DashboardPage extends React.Component {
       <Header />
         <div className='row'>
           <div className='col-1-of-4'>
-            <h1>Lists</h1>
+            <h1 className='title'>Lists</h1>
             {
               this.props.lists.length > 0 ? 
               this.props.lists.map((list) => {
@@ -69,7 +69,7 @@ class DashboardPage extends React.Component {
             }
           </div>
           <div className='col-3-of-4'>
-            <h1>{this.props.selectedList && this.props.selectedList.name || 'Items' }</h1>
+            <h1 className='title'>{this.props.selectedList && this.props.selectedList.name || 'Items' }</h1>
             <div className='row'>
             <div className='col-3-of-4'>
             <SelectItems 
