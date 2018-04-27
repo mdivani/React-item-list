@@ -4,10 +4,19 @@
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size;
+  outline: none;
 }
 
 .text-input--long {
   width: 100%;
+}
+
+.inline-input {
+  border: 1px solid $light-grey;
+  margin: 0 $xs-size;
+  padding: $xs-size;
+  width: 90%;
+  font-weight: 300;
 }
 
 .select {

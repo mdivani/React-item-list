@@ -51,18 +51,20 @@
   }
 }
   
-.table--no-border {
-  border: 0px;
+.table--create {
+  background-color: inherit;
   box-shadow: initial;
+  .table__header {
+    background-color: $off-white;
+  }
 }
 
 .table--borders {
-  border: 1px solid $grey;
   cursor: default;
   .table__row {
     background-color: $dark-white;
     padding: 0;
-    &:first-child {
+    & > {
       border-bottom: .5px solid $grey;
     }
   }

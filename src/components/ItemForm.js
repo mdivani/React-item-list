@@ -57,32 +57,42 @@ export class ItemForm extends React.Component {
         return (
             <form 
             onSubmit={this.handleFormSubmit}
-            className='form'>
+            className='form-horizontal margin-bottom--small'>
+              <div className='row-small'>
+            <div className='col-1-of-4-small'>
               <input 
                   type='text' 
                   value={this.state.name}
                   onChange={this.onNameChange}
                   placeholder='name'
-                  className='text-input' />
+                  className='inline-input' />
+            </div>
+            <div className='col-1-of-4-small'>
               <input 
                   type='text' 
                   value={this.state.first}
                   onChange={this.onFirstChange}
                   placeholder='first'
-                  className='text-input' />
+                  className='inline-input' />
+            </div>
+            <div className='col-1-of-4-small'>
               <input 
                   type='text' 
                   value={this.state.second}
                   onChange={this.onSecondChange}
                   placeholder='second'
-                  className='text-input' />
+                  className='inline-input' />
+            </div>
+            <div className='col-1-of-4-small'>
               <input 
                   type='text' 
                   value={this.state.third}
                   onChange={this.onThirdChange}
                   placeholder='third'
-                  className='text-input' />
-                  <button className='btn'>Create item</button>
+                  className='inline-input' />
+                  <button hidden className='btn'></button>
+            </div>
+              </div>
           </form>
         )
     }

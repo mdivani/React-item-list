@@ -69,7 +69,7 @@ class DashboardPage extends React.Component {
             }
           </div>
           <div className='col-3-of-4'>
-            <h1>{this.props.selectedList && this.props.selectedList.name} Items</h1>
+            <h1>{this.props.selectedList && this.props.selectedList.name || 'Items' }</h1>
             <div className='row'>
             <div className='col-3-of-4'>
             <SelectItems 
@@ -84,7 +84,7 @@ class DashboardPage extends React.Component {
             </div>
               {
                 this.props.selectedList && this.props.selectedList.items.length > 0 ? 
-                <ItemsTable selectedList={this.props.selectedList}/> : 
+                <ItemsTable hasOrder={true} selectedList={this.props.selectedList}/> : 
                 <p className='paragraph' >You currently have no items, <NavLink  className='paragraph__sub-link'
                        to='/item'> create
                       </NavLink> one now

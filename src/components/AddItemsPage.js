@@ -10,10 +10,11 @@ const AddItemsPage = (props) => {
         <div className='container'>
         <Header />
             <div className='content-container'>
-                <h2> Add items</h2>
+                <h2> Create items</h2>
+            <div className='box-layout--table'>
                 <ItemForm />
-                <hr />
-                <ItemsTable items={props.items} />
+                <ItemsTable hasOrder={false} items={props.items} />
+            </div>
             </div>
         </div>
     )
