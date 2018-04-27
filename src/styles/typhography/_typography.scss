@@ -1,0 +1,17 @@
+.paragraph {
+    color: darken($light-grey, 20%);
+    font-weight: 500;
+    padding-left: $s-size;
+    &__sub-txt {
+        display: block;
+    }
+    &__sub-link {
+        color: rgba($blue, .8);
+        text-decoration: none;
+        font-weight: 600;
+    }
+}
+
+.paragraph--center {
+    text-align: center;
+}

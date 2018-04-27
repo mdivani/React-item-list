@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const ListTable = ({ list, handleListSelect, selectedList }) => {
-    const isActive = selectedList && selectedList.name === list ? 'table--active' : '';
+    const isActive = selectedList && selectedList.name === list.name ? 'table--active' : '';
     return (
         <table 
             onClick={() => handleListSelect(list) }

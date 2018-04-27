@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import ListTable from './ListTable';
 import ItemsTable from './ItemsTable';
 import SelectItems from './SelectItems';
@@ -13,6 +14,12 @@ class DashboardPage extends React.Component {
     super(props);
     this.state = {
       selectedItemName: null
+    }
+  }
+
+  componentDidMount() {
+    if(this.props.lists.length > 0) {
+      this.props.selectList(this.props.lists[0]);
     }
   }
 
@@ -44,16 +51,25 @@ class DashboardPage extends React.Component {
           <div className='col-1-of-4'>
             <h1>Lists</h1>
             {
-              this.props.lists ? this.props.lists.map((list) => {
+              this.props.lists.length > 0 ? 
+              this.props.lists.map((list) => {
                 return <ListTable 
                         handleListSelect={this.handleListSelect}
                         key={list.name} 
                         list={list} />
-              }) : <h3>No Lists to display</h3>
+              }) : 
+              <p className='paragraph' >You currently have no lists 
+                <span className='paragraph__sub-txt'>
+                 lets <NavLink 
+                       className='paragraph__sub-link'
+                       to='/list'>create
+                      </NavLink> one now
+                </span>
+              </p>
             }
           </div>
           <div className='col-3-of-4'>
-            <h1>Items</h1>
+            <h1>{this.props.selectedList && this.props.selectedList.name} Items</h1>
             <div className='row'>
             <div className='col-3-of-4'>
             <SelectItems 
@@ -69,7 +85,10 @@ class DashboardPage extends React.Component {
               {
                 this.props.selectedList && this.props.selectedList.items.length > 0 ? 
                 <ItemsTable selectedList={this.props.selectedList}/> : 
-                <h3>No items to display</h3>
+                <p className='paragraph' >You currently have no items, <NavLink  className='paragraph__sub-link'
+                       to='/item'> create
+                      </NavLink> one now
+              </p>
               }
           </div>
         </div>
