@@ -7,6 +7,7 @@ import SelectItems from './SelectItems';
 import Header from './Header';
 import { addItemToList } from '../actions/lists';
 import { selectList } from '../actions/selectedList';
+import DisplayItemsText from './DisplayItemsText';
 
 
 class DashboardPage extends React.Component {
@@ -85,10 +86,7 @@ class DashboardPage extends React.Component {
               {
                 this.props.selectedList && this.props.selectedList.items.length > 0 ? 
                 <ItemsTable hasOrder={true} selectedList={this.props.selectedList}/> : 
-                <p className='paragraph' >You currently have no items, <NavLink  className='paragraph__sub-link'
-                       to='/item'> create
-                      </NavLink> one now
-              </p>
+                <DisplayItemsText items={this.props.items}/>
               }
           </div>
         </div>
