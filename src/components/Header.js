@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; 
+import { startLogout } from '../actions/auth.js';
 
 
 export const Header = ({ startLogout }) => (

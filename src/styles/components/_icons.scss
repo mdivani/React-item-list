@@ -1,0 +1,13 @@
+.icon {
+    background-color: $off-white;
+    text-align: center;
+    line-height: $l-size;
+    margin: 0;
+    padding: 0;
+    &__image {
+        cursor: pointer;
+        background-color: $dark-white;
+        display: inline-block;
+        height: $m-size * 1.4;
+    }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import itemSelector from '../selectors/itemsSelector';
 import sortByName from '../selectors/sortByName';
+import OrderIcon from './OrderIcon';
 
 const ItemsTable = (props) => {
     return (
