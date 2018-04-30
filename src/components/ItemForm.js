@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addItem } from '../actions/items';
 import uuid from 'uuid';
 
 export class ItemForm extends React.Component {
@@ -39,19 +38,19 @@ export class ItemForm extends React.Component {
         e.preventDefault();
         if(this.state.name) {
             const item = {
-                id: uuid(),
                 name: this.state.name,
                 first: this.state.first,
                 second: this.state.second,
                 third: this.state.third
             };
-            this.props.addItem(item);
-            this.setState(() => ({
-                name: '',
-                first: '',
-                second: '',
-                third: ''
-            }));
+            this.props.handleAddItem(item).then(() => {
+                this.setState(() => ({
+                    name: '',
+                    first: '',
+                    second: '',
+                    third: ''
+                }));
+            });
         }
     }
 

@@ -17,7 +17,6 @@ export default () => {
       lists: listReducer,
       selectedList: selectedListReducer
     }),
-    persistedState,
     composeEnhancers(applyMiddleware(thunk))
   );
 
