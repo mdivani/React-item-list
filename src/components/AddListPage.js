@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import ListForm from './ListForm';
 import ListTable from './ListTable';
 import Header from './Header';
-import { addList } from '../actions/lists';
+import { startAddList } from '../actions/lists';
 
 const AddListPage = (props) => {
     const handleAddList = (list) => {
-        props.addList(list);
-        props.history.push('/');
+        props.startAddList(list).then(() => {
+            props.history.push('/');
+        });
     }
 
     return (
@@ -23,7 +24,7 @@ const AddListPage = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addList: (list) => dispatch(addList(list))
+    startAddList: (list) => dispatch(startAddList(list))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddListPage);

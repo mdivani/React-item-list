@@ -5,7 +5,7 @@ import ListTable from './ListTable';
 import ItemsTable from './ItemsTable';
 import SelectItems from './SelectItems';
 import Header from './Header';
-import { addItemToList } from '../actions/lists';
+import { startAddItemToLIst } from '../actions/lists';
 import { selectList } from '../actions/selectedList';
 import DisplayItemsText from './DisplayItemsText';
 
@@ -35,7 +35,7 @@ class DashboardPage extends React.Component {
       const selectedItem = this.props.items.filter((item) =>{
         return item.name === this.state.selectedItemName
       })[0];
-      this.props.addItemToList(this.props.selectedList, selectedItem);
+      this.props.startAddItemToLIst(this.props.selectedList, selectedItem);
     }
   }
 
@@ -84,7 +84,8 @@ class DashboardPage extends React.Component {
             </div>
             </div>
               {
-                this.props.selectedList && this.props.selectedList.items.length > 0 ? 
+                this.props.selectedList && 
+                (this.props.selectedList.items && this.props.selectedList.items.length > 0) ? 
                 <ItemsTable hasOrder={true} selectedList={this.props.selectedList}/> : 
                 <DisplayItemsText items={this.props.items}/>
               }
@@ -102,7 +103,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addItemToList: (list, item) => dispatch(addItemToList(list, item)),
+  startAddItemToLIst: (list, item) => dispatch(startAddItemToLIst(list, item)),
   selectList: (list) => dispatch(selectList(list))
 });
 

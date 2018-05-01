@@ -10,6 +10,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import LoadingPage from './components/LoadingPage';
 import {login, logout} from './actions/auth.js';
 import { startSetItems } from './actions/items.js';
+import { startSetLists } from './actions/lists.js';
 
 const store = configureStore();
 const jsx = (
@@ -30,6 +31,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   if(user) {
       store.dispatch(login(user.uid));
+      store.dispatch(startSetLists());
       store.dispatch(startSetItems()).then(() => {
         renderApp();
         if(history.location.pathname === '/') {
