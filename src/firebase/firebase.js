@@ -10,7 +10,7 @@ const config = {
 };
 
 console.log("NODE_ENV",process.env.NODE_ENV) 
-console.log("API_KEY",process.env.APP_KEY)
+console.log("API_KEY",process.env.API_KEY)
 
 firebase.initializeApp(config);
 
