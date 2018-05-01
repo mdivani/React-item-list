@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
-import configureStore from './store/configureStore';
-import {firebase} from './firebase/firebase.js';
+import fontawesome from '@fortawesome/fontawesome';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import configureStore from './store/configureStore';
+import {firebase} from './firebase/firebase.js';
 import LoadingPage from './components/LoadingPage';
 import {login, logout} from './actions/auth.js';
 import { startSetItems } from './actions/items.js';
 import { startSetLists } from './actions/lists.js';
+
+fontawesome.library.add(brands);
 
 const store = configureStore();
 const jsx = (

@@ -80,7 +80,7 @@ class DashboardPage extends React.Component {
             <button 
               disabled={this.props.lists.length === 0}
               onClick={this.handleAddItem}
-              className='button'>Add Item</button>
+              className='button button--shadow'>Add Item</button>
             </div>
             </div>
               {

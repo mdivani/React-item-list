@@ -11,3 +11,12 @@
         height: $m-size * 1.4;
     }
 }
+
+.icon--fb {
+    background-color: steelblue;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    margin: 0 $xs-size;
+    padding: 0 $s-size;
+}

@@ -1,4 +1,5 @@
 .box-layout {
+  background: linear-gradient(to right, $blue, $dark-blue);
   align-items: center;
   background-color: #f7f7f7;
   background-size: cover;
@@ -9,7 +10,7 @@
 }
 
 .box-layout__box {
-  background: fade-out(white, .15);
+  background: fade-out(white, .35);
   border-radius: 3px;
   padding: $l-size $m-size;
   text-align: center;

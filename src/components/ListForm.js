@@ -65,7 +65,7 @@ export default class ListForm extends React.Component {
                 isOutsideRange = {() => false}
                  />
 
-                <button className='btn'>Create</button>
+                <button className='button button-shadow right'>Create</button>
             </form>
         )
     }

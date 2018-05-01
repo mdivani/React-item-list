@@ -8,6 +8,13 @@
   line-height: 1;
   padding: $s-size;
   text-decoration: none;
+  &:hover {
+    transform: translateY(-3px);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
 }
 
 .button[disabled] {
@@ -16,6 +23,10 @@
 
 .button--link {
   background: none;
+}
+
+.button--shadow {
+  box-shadow: 0 2px 4px rgba(0,0,0, .15);
 }
 
 .button--secondary {
