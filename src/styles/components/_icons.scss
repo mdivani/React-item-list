@@ -20,3 +20,22 @@
     margin: 0 $xs-size;
     padding: 0 $s-size;
 }
+
+.icon--sort {
+    cursor: pointer;
+    color: $grey;
+    padding: $xs-size 0;
+    &:hover {
+        color: darken($blue, 20%);
+    }
+    &:active {
+        color: $blue; 
+    }
+}
+
+.icon--sort-active {
+    color: $blue;
+    &:hover {
+        color: $blue;
+    }
+}

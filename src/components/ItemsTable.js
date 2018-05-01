@@ -33,9 +33,9 @@ const ItemsTable = (props) => {
 }
 
 const mapStateToProps = (state, props) => ({
-    items: props.hasOrder ? 
-    itemSelector(props.selectedList, state.items) : 
-    sortByName(itemSelector(props.selectedList, state.items))
+    items: props.isSorted ? 
+    sortByName(itemSelector(props.selectedList, state.items)) : 
+    itemSelector(props.selectedList, state.items)
 });
 
 export default connect(mapStateToProps)(ItemsTable);

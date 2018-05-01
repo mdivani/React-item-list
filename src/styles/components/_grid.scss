@@ -80,4 +80,16 @@
     .col-1-of-4-small {
         width: calc((100% - #{$gutter-horizontal-small}*3)/4);
     }
+
+    .col-1-of-5-small {
+        width: calc((100% - #{$gutter-horizontal-small}*4)/5);
+    }
+
+    .col-1-of-9-small {
+        width: calc((100% - #{$gutter-horizontal-small}*8)/9);
+    }
+
+    .col-8-of-9-small {
+        width: calc(8 * (100% - #{$gutter-horizontal-small}*8)/9 + #{$gutter-horizontal-small} * 7);
+    }
 }
