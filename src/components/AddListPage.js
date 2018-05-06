@@ -13,7 +13,7 @@ class AddListPage extends React.Component {
 
     handleAddList = (list) => {
         this.props.startAddList(list).then(() => {
-            this.handleToggleModal();
+            this.props.history.push('/');
         });
     }
 
