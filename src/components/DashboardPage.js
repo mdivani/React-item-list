@@ -87,7 +87,7 @@ class DashboardPage extends React.Component {
                 this.props.selectedList && 
                 (this.props.selectedList.items && this.props.selectedList.items.length > 0) ? 
                 <ItemsTable hasOrder={true} selectedList={this.props.selectedList}/> : 
-                <DisplayItemsText items={this.props.items}/>
+                <DisplayItemsText items={this.props.items} lists={this.props.lists}/>
               }
           </div>
         </div>

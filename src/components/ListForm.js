@@ -9,8 +9,8 @@ export default class ListForm extends React.Component {
         super(props);
         this.state = {
             name: '',
-            startDate: moment(),
-            endDate: moment(),
+            startDate: null,
+            endDate: null,
             error: '',
             focusedInput: null
         }
@@ -57,7 +57,9 @@ export default class ListForm extends React.Component {
               <DateRangePicker 
                 startDate = {this.state.startDate}
                 startDateId = {uuid()}
+                startDatePlaceholderText="Start Date"
                 endDate = {this.state.endDate}
+                endDatePlaceholderText="End Date"
                 endDateId = {uuid()}
                 onDatesChange = {this.handleDateChange}
                 focusedInput = {this.state.focusedInput}
