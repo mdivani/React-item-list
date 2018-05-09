@@ -33,22 +33,25 @@
 .table--hover {
   background-color: $dark-white;
   &:hover {
-    background-color: $off-white;
+    background-color: $green-light;
+    color: $off-white;
     transform: translateY(-5px);
   }
   &:active {
-    background-color: lighten($off-white, 5%);
+    background-color: $green-light;
+    color: $off-white;
     transform: translateY(-2px);
     box-shadow: 2px 2px 4px rgba(0,0,0, .25);
   }
 }
 
 .table--active {
-  background-color: lighten($off-white, 5%);
+  background-color: $green-light;
+  color: $off-white;
   transform: translateY(-2px);
   box-shadow: 2px 2px 4px rgba(0,0,0, .35);
   &:hover {
-    background-color: lighten($off-white, 5%);
+    background-color: $green-light;
     transform: translateY(-2px);
   }
 }
@@ -58,6 +61,7 @@
   box-shadow: initial;
   .table__header {
     background-color: $off-white;
+    color: $dark-grey;
   }
 }
 
